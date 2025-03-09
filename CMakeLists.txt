@@ -209,7 +209,7 @@ endif()
 # When the library is built for static linking, apps should define
 # AL_LIBTYPE_STATIC when including the AL headers.
 if(NOT LIBTYPE)
-    set(LIBTYPE SHARED)
+    set(LIBTYPE STATIC)
 endif()
 
 set(LIB_MAJOR_VERSION "1")
@@ -1445,7 +1445,7 @@ if(LIBTYPE STREQUAL "STATIC")
 else()
     set(RC_CONFIG resources/openal32.rc)
     if(WIN32 AND ALSOFT_BUILD_ROUTER)
-        add_library(OpenAL SHARED
+        add_library(OpenAL STATIC
             resources/router.rc
             router/router.cpp
             router/router.h
